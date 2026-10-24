@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-24 — v1.1
+
+- Lições 13–14: fonte citada sem ter sido lida; testes do implementador ocupando recursos fixos.
+- Checklist de revisão ganhou a seção "Procedência".
+
 ## 2026-10-24 — v1
 
 - A skill `/orquestrar` define os papéis (o orquestrador Opus, um implementador externo opcional, `implementer`,

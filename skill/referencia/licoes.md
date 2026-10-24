@@ -28,3 +28,8 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
     criar o worktree.
 12. **Medir, não estimar.** Desempenho de população de bots nunca tinha sido medido acima de 4. · Peça tabela com
     números reais para cada escala relevante e defina o default a partir dela.
+13. **Fonte citada sem ter sido lida.** O pesquisador não conseguiu acessar nenhuma fonte e mesmo assim pôs uma URL da wiki
+    como fonte de 144 entradas montadas de memória. · Na spec de pesquisa, exija "cite só o que você de fato abriu; se
+    nada abriu, marque `unverified`". Na revisão, cruze as fontes citadas com as que o relatório diz ter acessado.
+14. **Testes do implementador ocupam recursos fixos** (porta 7171) e bloqueiam os smokes do orquestrador. · Na spec,
+    mande o implementador usar portas ou recursos alternativos em todo estado descartável.

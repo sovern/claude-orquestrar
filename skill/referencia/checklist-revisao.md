@@ -21,6 +21,9 @@ Leia o diff real (`git diff`, arquivos novos inteiros). O relatório do implemen
 - [ ] Sem lixo: diretórios scratch, logs, arquivos temporários fora do `.gitignore`.
 - [ ] Finais de linha e estilo preservados (diff com milhares de linhas = finais de linha trocados).
 
+## Procedência (pesquisa)
+- [ ] Cada fonte citada foi de fato acessada (bata com o que o relatório diz). Dado de memória é marcado `unverified`.
+
 ## Verificação
 - [ ] Rode o build você mesmo.
 - [ ] Rode os testes/smokes relevantes, incluindo uma regressão do caminho antigo.
