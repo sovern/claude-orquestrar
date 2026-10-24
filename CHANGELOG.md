@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-24 — v1.2
+
+- Lições 15–16: não mudar o escopo de um implementador em execução; fatiar tarefas grandes.
+
 ## 2026-10-24 — v1.1
 
 - Lições 13–14: fonte citada sem ter sido lida; testes do implementador ocupando recursos fixos.

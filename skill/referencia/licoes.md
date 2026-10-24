@@ -33,3 +33,10 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
     nada abriu, marque `unverified`". Na revisão, cruze as fontes citadas com as que o relatório diz ter acessado.
 14. **Testes do implementador ocupam recursos fixos** (porta 7171) e bloqueiam os smokes do orquestrador. · Na spec,
     mande o implementador usar portas ou recursos alternativos em todo estado descartável.
+15. **Mudar o escopo de um implementador em execução custa caro.** Sete mensagens de escopo novo durante a mesma
+    tarefa transformaram uma execução de cerca de 2 h em mais de 8 h. Cada mensagem reabria trabalho já feito.
+    · Ideia nova durante a execução vira tarefa nova, enfileirada. Só interrompa para corrigir um rumo errado
+    (bug, decisão invalidada).
+16. **Tarefa grande demais para um único implementador.** Diagnóstico, calibração, grupos, desempenho e medição
+    numa tarefa só fazem tudo rodar em série. · Fatie em tarefas de 1–2 h, cada uma com uma verificação curta
+    própria. Use rodadas de medição curtas na iteração e deixe a rodada longa só para o fechamento.
