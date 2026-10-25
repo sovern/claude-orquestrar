@@ -40,3 +40,18 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
 16. **Tarefa grande demais para um único implementador.** Diagnóstico, calibração, grupos, desempenho e medição
     numa tarefa só fazem tudo rodar em série. · Fatie em tarefas de 1–2 h, cada uma com uma verificação curta
     própria. Use rodadas de medição curtas na iteração e deixe a rodada longa só para o fechamento.
+17. **Subagentes morrem com a sessão que os criou.** Quando a sessão anterior caiu, três implementadores pararam
+    no meio de um comando, sem relatório final. Os adendos de escopo que tinham ido só por mensagem se perderam
+    junto. · Todo adendo relevante vai também para o arquivo da spec. Ao retomar, o novo implementador recebe
+    "audite o que existe na worktree e termine", nunca "comece".
+18. **"Compila" não é "funciona" em código de UI.** Um módulo de cliente compilou, mas nunca abria a janela: o
+    layout só definia o estilo e não criava a instância. · Em entregas de UI, exija um teste rodando, mesmo
+    mínimo. Sem como ver a tela, ponha log temporário nos pontos do fluxo (enviar, receber, abrir) e leia o log
+    antes de pedir o teste ao usuário.
+19. **A ferramenta de observação altera o que observa.** O espectador GM invisível contava como "humano por
+    perto". Isso disparava a regra anti-humano dos bots, que fugiam por teleporte, e o espectador ia atrás em
+    loop. · Ao criar ferramenta de debug ou observação, verifique que regras do sistema observado ela aciona.
+    Observadores precisam ser invisíveis também para a lógica, não só na tela.
+20. **Cherry-pick de branches paralelos que tocam a mesma função.** Não resolva o conflito colando os dois
+    lados. Escolha a versão mais nova como base e reaplique nela a intenção do outro lado. Depois confira com
+    um diff contra a base que a região bate.
