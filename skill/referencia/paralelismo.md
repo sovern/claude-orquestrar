@@ -20,7 +20,12 @@ git worktree add -b <branch> ../<repo>-<tarefa> HEAD
 - **Integração:** commite no branch do worktree, faça `rebase` sobre o branch principal, rode build/testes, e traga com
   `cherry-pick`. Se o branch principal está sendo editado por outro implementador, só faça cherry-pick quando não houver
   sobreposição de arquivos com o trabalho em andamento — ou espere ele terminar.
-- **Limpeza:** `git worktree remove --force <dir>` e `git branch -D <branch>` depois de integrar.
+- **Conflito no cherry-pick** quando dois branches mexeram na mesma função: não cole os dois lados. Use a
+  versão mais nova como base, reaplique nela a intenção do outro lado e confira com um diff contra a base.
+- **Limpeza**, só depois de confirmar que o trabalho foi integrado: `git -C <dir> status --short` sem
+  alterações pendentes e o commit presente no branch principal (`git branch --contains <commit>`). Então
+  `git worktree remove <dir>` (sem `--force`) e `git branch -d <branch>` (`-d`, que recusa apagar branch não
+  integrado). Use `--force`/`-D` só se o usuário confirmar que o que sobrou pode ser descartado.
 
 ## Caminhos para ferramentas externas
 Passe sempre caminhos **absolutos** (spec, workspace). Um caminho relativo resolvido a partir do diretório errado faz
