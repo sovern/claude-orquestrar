@@ -34,6 +34,12 @@ Leia antes: <docs de design/ADRs relevantes>.
 2. Testes: `<comando>`.
 3. Verificação ao vivo em estado descartável: `<como>`; remova tudo depois.
 
+## Progress mailbox
+A cada ~10 min de trabalho e a cada marco (causa achada, correção compilada, teste rodado, bloqueio), acrescente
+2-5 linhas em `<caminho absoluto>/mailbox/<id>.md` (num diretório ignorado pelo git):
+`- HH:MM <o que fez> | <resultado/número atual> | <próximo passo ou bloqueio>`.
+O orquestrador lê para te monitorar. Não espere resposta ali; se travar, escreva e siga no que der.
+
 ## Deliverable
 Relatório conciso: arquivos alterados, decisões de design, saídas da verificação, o que não foi verificado, riscos,
 "Escalation request" se houver.

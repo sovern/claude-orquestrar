@@ -42,6 +42,10 @@ estiver indisponível. O papel do orquestrador não muda.
 6. **Delegar** em background. O prompt do implementador inclui: caminho absoluto da spec, worktree, o que não tocar,
    as regras do agente (ou o tipo de agente), "não commitar", e — se houver trabalho parcial — "audite o parcial
    contra a spec, não descarte, não recomece às cegas".
+   **Monitore** cada tarefa em background: crie a mailbox da spec (`referencia/spec-template.md`) e agende uma
+   checagem periódica (ex. a cada 10 min) que lê a mailbox e o `git diff --stat` e reporta ao usuário. Diff e
+   mailbox parados por muito tempo indicam travamento. Implementador externo em modo headless não recebe
+   mensagens no meio da execução: a spec é o único canal de ida.
 7. **Revisar** cada entrega com `referencia/checklist-revisao.md`. Leia o diff de verdade; não confie no relatório.
 8. **Verificar você mesmo:** build, testes, smokes. Números medidos, não estimados.
 9. **Commitar** (o orquestrador), integrar branches (cherry-pick/rebase), remover worktrees, atualizar o handoff do projeto.

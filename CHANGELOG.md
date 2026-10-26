@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-26 — v1.4
+
+- Spec ganha a seção "Progress mailbox": o implementador anota o progresso num arquivo a cada ~10 min e a
+  cada marco.
+- Fluxo, passo 6: o orquestrador monitora cada tarefa em background com uma checagem periódica da mailbox
+  e do diff. Implementador externo headless não recebe mensagens no meio da execução.
+- Revisão do passo 0: sem repetição ou conflito com as regras existentes; nada perigoso adicionado.
+
 ## 2026-10-25 — v1.3
 
 - Evolução da skill ganhou o passo 0: antes de alterar, reler a skill inteira procurando repetição,
