@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-27 — v1.5
+
+- Lição 17 ampliada (encerrar com subagentes no meio: pare, escreva o handoff, commit WIP), sem duplicar.
+- Lições 21–24: conflitos em arquivos gerados, teste de UI por texto frágil, bug só no aparelho, campo composto sob
+  "último vence" por campo. Checklist ganhou "Armadilhas recorrentes".
+- Revisão do passo 0: a lição nova sobre subagentes repetia a 17 e foi fundida nela; sem conflito com o fluxo; nada
+  perigoso adicionado (sem comandos destrutivos, segredos ou caminhos pessoais).
+
 ## 2026-10-26 — v1.4
 
 - Spec ganha a seção "Progress mailbox": o implementador anota o progresso num arquivo a cada ~10 min e a

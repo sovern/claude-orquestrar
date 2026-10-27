@@ -45,7 +45,10 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
 
 17. **Subagentes morrem com a sessão que os criou.** Quando a sessão anterior caiu, três implementadores pararam
     no meio de um comando, sem relatório final. Os adendos de escopo que tinham ido só por mensagem se perderam
-    junto. · Todo adendo relevante vai também para o arquivo da spec. Para retomar, vale a lição 7.
+    junto. · Todo adendo relevante vai também para o arquivo da spec. Para retomar, vale a lição 7. Para tarefa
+    longa, prefira o implementador externo destacado (serviço), que sobrevive à sessão. Se for preciso encerrar
+    com subagentes no meio, não espere por eles: pare-os, escreva você mesmo o handoff no ticket e faça um commit
+    WIP no branch de cada um.
 18. **"Compila" não é "funciona" em código de UI.** Um módulo de cliente compilou, mas nunca abria a janela: o
     layout só definia o estilo e não criava a instância. · Em entregas de UI, exija um teste rodando, mesmo
     mínimo. Sem como ver a tela, ponha log temporário nos pontos do fluxo (enviar, receber, abrir) e leia o log
@@ -56,3 +59,18 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
     Observadores precisam ser invisíveis também para a lógica, não só na tela.
 20. **Cherry-pick de branches paralelos que tocam a mesma função.** Colar os dois lados do conflito teria
     misturado duas versões incompatíveis da ativação de party. · A regra está em `paralelismo.md`.
+
+## 2026-10-27 — dez tickets em paralelo num app com sync (Flutter)
+
+21. **Conflito de rebase em arquivos gerados.** Textos (ARB/JSON), código gerado e goldens conflitaram em quase todo
+    merge paralelo. · Resolva o arquivo de textos pela união das chaves a partir dos estágios (`git show :2:` /
+    `:3:`). Nos gerados e nas imagens, fique com a main e regenere. Depois confira chave duplicada e rode a suíte.
+22. **Teste de interface que procura por texto quebra quando outro ticket renomeia um rótulo.** Uma aba renomeada
+    fez três testes acharem a aba em vez do bloco. · Na spec, peça busca por chave, não por texto visível.
+23. **Bug que só aparece no aparelho.** A confirmação de identidade remontava a tela no celular; o widget usava o
+    estado depois do `await` e o recurso nunca ligava, mas a farsa do canal passava nos testes. · Antes de liberar,
+    exercite no emulador/aparelho todo recurso que fala com a plataforma; na revisão, procure uso de estado do
+    widget depois de `await` e capture tudo antes.
+24. **Sync com "último vence" por campo e campo composto.** Um aparelho antigo que muda só o total deixa as partes
+    somando outro valor. · Na revisão de campo novo que depende de outro, pergunte o que uma edição parcial vinda de
+    versão antiga ou concorrente faz; a leitura tolera e degrada, nunca descarta o registro.
