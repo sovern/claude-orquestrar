@@ -81,6 +81,8 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
     Windows) não estava no PATH. Saiu com 127 em segundos, e o "concluído" parecia sucesso. · Lance pelo shell
     onde o comando resolve (no Windows, PowerShell) e confira o log no primeiro minuto, antes de ir para outra frente.
 26. **Número implausível passado adiante como "talvez legítimo".** O implementador mediu um boss de 16 mil HP
-    morrendo em 0,0 s e deixou a dúvida no relatório. Uma sonda de 20 linhas achou a causa real: um multiplicador
-    composto no próprio jogo, não um bug do harness. · Todo outlier medido é rastreado até a causa antes de virar
-    "bug" ou "achado". Sonde no passo exato do evento em vez de discutir a hipótese.
+    morrendo em 0,0 s e deixou a dúvida no relatório. A primeira sonda achou um multiplicador composto e parou ali.
+    Depois da correção, a nova medição mostrou o boss ainda morrendo em 0,5 s. A causa principal era outra: um
+    projétil acertando o mesmo alvo em passos seguidos. · Todo outlier medido é rastreado até a causa antes de
+    virar "bug" ou "achado". Sonde no passo exato do evento, registrando cada contribuição, não só a primeira
+    suspeita. Depois de corrigir, meça de novo: a primeira causa plausível pode não ser a única.
