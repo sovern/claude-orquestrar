@@ -96,3 +96,11 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
     `Cache-Control: no-store`. Se havia service worker, o novo precisa limpar o cache **e recarregar as abas**. Ao
     receber "não funciona" do dono, leia o log do servidor antes de mexer no código: os 404 mostram qual versão ele
     carregou.
+29. **"Headless: DOM ok, zero erros" e o mapa quebrava ao abrir.** O implementador conferiu o HTML estático e os IDs. O
+    erro só aparecia ao percorrer o fluxo: uma função limpava o contêiner com `innerHTML = ''` e apagava o `<svg>` que
+    outra função usava logo depois. · Para UI, a verificação é percorrer o fluxo real (clique/tecla → tela seguinte). Dê
+    ao app um gancho de depuração (estado exposto + avanço manual do tempo, que funciona com a aba oculta) e use-o na
+    revisão. Exija esse gancho nas specs.
+30. **Mensagem de commit com aspas some no PowerShell 5.1.** Uma here-string com `"..."` passada ao `git commit -m`
+    foi quebrada em vários argumentos, e o git tentou tratá-los como caminhos. · Escreva a mensagem num arquivo e use
+    `git commit -F <arquivo>` (ou commite pelo Bash).

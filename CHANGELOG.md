@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-02 — v1.8
+
+- Lições 29–30: verificar UI percorrendo o fluxo com gancho de depuração (não só DOM estático); `git commit -F` em vez de `-m` com aspas no PowerShell 5.1.
+
 ## 2026-11-02 — v1.7
 
 - Lições 27–28: encerrar processos de teste do implementador; cache de módulos e service worker antigo mascarando a versão nova num app web.
