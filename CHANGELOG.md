@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-02 — v1.7
+
+- Lições 27–28: encerrar processos de teste do implementador; cache de módulos e service worker antigo mascarando a versão nova num app web.
+- Revisão do passo 0: não repetem a 25 (implementador que não iniciou) nem a 23 (bug só no aparelho).
+
 ## 2026-11-02 — v1.6
 
 - Lições 25–26: confirmar que o implementador externo de fato iniciou (log no primeiro minuto); rastrear todo

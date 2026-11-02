@@ -86,3 +86,13 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
     projétil acertando o mesmo alvo em passos seguidos. · Todo outlier medido é rastreado até a causa antes de
     virar "bug" ou "achado". Sonde no passo exato do evento, registrando cada contribuição, não só a primeira
     suspeita. Depois de corrigir, meça de novo: a primeira causa plausível pode não ser a única.
+27. **Processo de teste do implementador sobreviveu ao fim da tarefa.** O muse subiu um `http.server` para testar e
+    não o encerrou. A sessão dele ficou presa e a porta, ocupada, respondendo conexões vazias ao orquestrador. · Na
+    spec e no prompt, peça para encerrar todo servidor ou processo de teste antes de terminar. Antes de verificar,
+    confira quem está escutando a porta (`Get-NetTCPConnection` + linha de comando do processo).
+28. **Navegador mostrando código velho num app web sem build.** O `http.server` do Python deixa o navegador guardar
+    módulos ES em cache, e o service worker da versão anterior (cache-first) serviu um `index.html` antigo que
+    apontava para arquivos movidos. O dono viu "a nave não responde". · Num app web reorganizado, sirva o dev com
+    `Cache-Control: no-store`. Se havia service worker, o novo precisa limpar o cache **e recarregar as abas**. Ao
+    receber "não funciona" do dono, leia o log do servidor antes de mexer no código: os 404 mostram qual versão ele
+    carregou.
