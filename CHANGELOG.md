@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-02 — v1.6
+
+- Lições 25–26: confirmar que o implementador externo de fato iniciou (log no primeiro minuto); rastrear todo
+  outlier medido até a causa antes de classificá-lo.
+- Revisão do passo 0: as lições novas não repetem a 8 (caminho da spec), a 12 (medir, não estimar) nem as 21–24,
+  que tratam de outra coisa; nenhum conflito ou conteúdo perigoso encontrado.
+
 ## 2026-10-27 — v1.5
 
 - Lição 17 ampliada (encerrar com subagentes no meio: pare, escreva o handoff, commit WIP), sem duplicar.

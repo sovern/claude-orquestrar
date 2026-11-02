@@ -74,3 +74,13 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
 24. **Sync com "último vence" por campo e campo composto.** Um aparelho antigo que muda só o total deixa as partes
     somando outro valor. · Na revisão de campo novo que depende de outro, pergunte o que uma edição parcial vinda de
     versão antiga ou concorrente faz; a leitura tolera e degrada, nunca descarta o registro.
+
+## 2026-11-02 — simulador de balanceamento num jogo web (implementador externo)
+
+25. **O implementador externo nem chegou a rodar.** Lançado em background pelo Git Bash, o CLI (um `.cmd` do
+    Windows) não estava no PATH. Saiu com 127 em segundos, e o "concluído" parecia sucesso. · Lance pelo shell
+    onde o comando resolve (no Windows, PowerShell) e confira o log no primeiro minuto, antes de ir para outra frente.
+26. **Número implausível passado adiante como "talvez legítimo".** O implementador mediu um boss de 16 mil HP
+    morrendo em 0,0 s e deixou a dúvida no relatório. Uma sonda de 20 linhas achou a causa real: um multiplicador
+    composto no próprio jogo, não um bug do harness. · Todo outlier medido é rastreado até a causa antes de virar
+    "bug" ou "achado". Sonde no passo exato do evento em vez de discutir a hipótese.
