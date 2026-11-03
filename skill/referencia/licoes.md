@@ -104,3 +104,12 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
 30. **Mensagem de commit com aspas some no PowerShell 5.1.** Uma here-string com `"..."` passada ao `git commit -m`
     foi quebrada em vários argumentos, e o git tentou tratá-los como caminhos. · Escreva a mensagem num arquivo e use
     `git commit -F <arquivo>` (ou commite pelo Bash).
+31. **Duas frentes em paralelo e o merge quase silencioso.** O áudio (worktree) e as árvores (branch principal) mexeram
+    no mesmo `main.js`. Os conflitos de texto eram triviais, mas a T10 criou 11 tipos de evento que o áudio não
+    conhecia. Quem pegou foi um teste da T11 que extrai os tipos de evento do código da sim e exige som para cada um.
+    · Ao paralelizar, peça à frente "consumidora" um teste de cobertura contra o contrato da outra (tipos de evento,
+    IDs, chaves) e marque os pontos de integração com um comentário único (`// T11 áudio`) para o merge. Rode a suíte e
+    o smoke depois do merge, não só em cada branch.
+32. **Smoke de navegador com falha intermitente.** Um passo de "a bolha volta em 10 s" falhou 1 em 3 rodadas, sem
+    relação com a mudança. · Antes de culpar o merge, rode o smoke de novo. Se falhar só às vezes, registre como
+    instável no relatório e abra tarefa para tornar o passo determinístico (congelar o resto da sim, isolar a entidade).

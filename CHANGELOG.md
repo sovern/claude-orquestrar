@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-03 — v1.9
+
+- Lições 31–32: teste de cobertura de contrato ao paralelizar frentes que se integram; smoke instável não é culpa do merge até reproduzir.
+
 ## 2026-11-02 — v1.8
 
 - Lições 29–30: verificar UI percorrendo o fluxo com gancho de depuração (não só DOM estático); `git commit -F` em vez de `-m` com aspas no PowerShell 5.1.
