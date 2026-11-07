@@ -43,8 +43,9 @@ estiver indisponível. O papel do orquestrador não muda.
    as regras do agente (ou o tipo de agente), "não commitar", e — se houver trabalho parcial — "audite o parcial
    contra a spec, não descarte, não recomece às cegas".
    **Monitore** cada tarefa em background: crie a mailbox da spec (`referencia/spec-template.md`) e agende uma
-   checagem periódica (ex. a cada 10 min) que lê a mailbox e o `git diff --stat` e reporta ao usuário. Diff e
-   mailbox parados por muito tempo indicam travamento. Implementador externo em modo headless não recebe
+   checagem periódica (ex. a cada 10 min) que lê a mailbox e o `git diff --stat` e reporta ao usuário. Vigie
+   também o arquivo de relatório e a saída do processo (PID salvo no lançamento): a mailbox sozinha engana (lição
+   35). Diff e mailbox parados por muito tempo indicam travamento. Implementador externo em modo headless não recebe
    mensagens no meio da execução: a spec é o único canal de ida.
 7. **Revisar** cada entrega com `referencia/checklist-revisao.md`. Leia o diff de verdade; não confie no relatório.
 8. **Verificar você mesmo:** build, testes, smokes. Números medidos, não estimados.

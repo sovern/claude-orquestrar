@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-06 — v1.10
+
+- Lições 33–37: caminho do Windows corrompido por escape; implementador automatizando o desktop do dono; monitor por
+  mailbox + relatório + processo; medir o gargalo antes de otimizar (build vs. runtime); varrer conflitos e limites
+  depois de merge.
+
 ## 2026-11-03 — v1.9
 
 - Lições 31–32: teste de cobertura de contrato ao paralelizar frentes que se integram; smoke instável não é culpa do merge até reproduzir.

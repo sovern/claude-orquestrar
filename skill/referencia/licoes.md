@@ -113,3 +113,32 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
 32. **Smoke de navegador com falha intermitente.** Um passo de "a bolha volta em 10 s" falhou 1 em 3 rodadas, sem
     relação com a mudança. · Antes de culpar o merge, rode o smoke de novo. Se falhar só às vezes, registre como
     instável no relatório e abra tarefa para tornar o passo determinístico (congelar o resto da sim, isolar a entidade).
+
+## 2026-11-06 — jogo Rust/Bevy portado para o Windows, sete tickets (implementador externo + Opus na arte)
+
+33. **Caminho do Windows atravessando heredoc e string do Python perdeu barras.** Quatro vezes na mesma sessão:
+    `\t`, `\v`, `\b`, `\a` e `\r` de caminhos (`\tickets`, `\vstudo`, `\blender`, `\arena`, `\rico`) viraram
+    caracteres de controle em prompts, no HANDOFF e no gerador de prompts. Um prompt quebrado chegou a ser lançado. ·
+    Arquivo com caminho do Windows: escreva com a ferramenta de escrita de arquivo (texto exato), ou monte o caminho
+    em código (`ntpath.join`, `chr(92)`), ou use `/`. Depois de gerar, procure caracteres de controle
+    (`\x00-\x08\x0b\x0c\x0e-\x1f`) antes de usar o arquivo.
+34. **Implementador testou o jogo mandando teclas para o desktop do dono.** Sem ferramenta de automação no Windows, o
+    muse usou `SendKeys`/`AppActivate`: puxou a janela para frente e digitou enquanto o dono usava o PC. · Proíba no
+    prompt toda automação de janela. Dê ao app um roteiro próprio (variável de ambiente com teclas, capturas e saída,
+    semente fixa) e faça dele o único jeito de dirigir o app. É a lição 29 aplicada a jogos: o gancho entra antes da
+    primeira tarefa que precisa de captura.
+35. **"Terminou?" pela mailbox engana.** Um implementador gravou a mailbox com outro nome (`42.md` em vez de
+    `t42.md`). Outro parou de atualizar a mailbox enquanto trabalhava. Um terceiro terminou e o monitor só viu a
+    mailbox. · Monitore três sinais: linhas novas na mailbox, arquivo de relatório e saída do processo (PID salvo no
+    lançamento). Rearmado, o monitor reimprime linhas antigas: compare o horário com o do lançamento antes de agir.
+36. **"Acelera a otimização" e o gargalo era outro.** O dono pediu para antecipar o ticket de performance porque o gate
+    demorava. O jogo não era o lento: o rebuild incremental levava 134 s (linker e debuginfo) e cada worktree
+    recompilava 370 dependências do zero. · Meça antes de mexer e diga ao dono onde está o tempo. Num projeto
+    compilado: linker mais rápido, debuginfo reduzido só no crate que muda, e `target/` dos worktrees por hardlink
+    só das dependências de terceiros (nunca dos crates do repo, que colidem). Aqui: rebuild 134 s → 17-28 s, primeiro
+    gate de worktree novo de minutos → 38 s.
+37. **Merge de dois branches deixou marca de conflito num arquivo que eu não vi.** Os dois acrescentaram testes no
+    fim do mesmo módulo; o `git status` mostrava os conflitos que eu esperava, e o terceiro passou despercebido até a
+    contagem de testes dar 0. Na mesma integração, cada branch acrescentou um sistema numa lista de tamanho limitado
+    (20) e a soma estourou. · Depois de todo merge: `git diff --name-only --diff-filter=U` inteiro, `grep` por
+    `^<<<<<<<` no repo e build. Um número absurdo (0 testes) é sinal de quebra, não de resultado.
