@@ -121,7 +121,9 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
     caracteres de controle em prompts, no HANDOFF e no gerador de prompts. Um prompt quebrado chegou a ser lançado. ·
     Arquivo com caminho do Windows: escreva com a ferramenta de escrita de arquivo (texto exato), ou monte o caminho
     em código (`ntpath.join`, `chr(92)`), ou use `/`. Depois de gerar, procure caracteres de controle
-    (`\x00-\x08\x0b\x0c\x0e-\x1f`) antes de usar o arquivo.
+    (`\x00-\x08\x0b\x0c\x0e-\x1f`) antes de usar o arquivo. Reincidiu no dia seguinte, num script Python que editava
+    o HANDOFF (`\arena` virou `\x07rena`) e num `assert` com o texto escapado: edição de arquivo com caminho do Windows
+    ou barra invertida vai pela ferramenta de edição de arquivo, não por string dentro de script.
 34. **Implementador testou o jogo mandando teclas para o desktop do dono.** Sem ferramenta de automação no Windows, o
     muse usou `SendKeys`/`AppActivate`: puxou a janela para frente e digitou enquanto o dono usava o PC. · Proíba no
     prompt toda automação de janela. Dê ao app um roteiro próprio (variável de ambiente com teclas, capturas e saída,
@@ -142,3 +144,22 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
     contagem de testes dar 0. Na mesma integração, cada branch acrescentou um sistema numa lista de tamanho limitado
     (20) e a soma estourou. · Depois de todo merge: `git diff --name-only --diff-filter=U` inteiro, `grep` por
     `^<<<<<<<` no repo e build. Um número absurdo (0 testes) é sinal de quebra, não de resultado.
+
+## 2026-11-07 — mesmo jogo, dia longo: arte em lotes paralelos, som e logo gerados por IA, inventário
+
+38. **Medição de custo inválida aceita duas vezes.** O implementador mediu o custo de quadro com a janela escondida,
+    onde o sistema trava em 60 fps, e concluiu "sem regressão". O método válido estava no handoff do projeto, não na
+    spec. · Ponha o método de medição na spec (como medir e o que invalida) e recuse número medido de outro jeito.
+    Medição que precisa de janela visível na tela do dono: peça antes, ela aparece no monitor dele.
+39. **O implementador julga mal as próprias capturas.** Num efeito visual (gel translúcido), o relatório dizia
+    "silhueta densa, olhos nítidos" e o recorte ampliado mostrava o contrário; foram três rodadas até o dono cancelar.
+    · Olhe as capturas você mesmo, ampliadas, lado a lado com o antes. Dê alvos numéricos já na primeira rodada.
+    Depois de duas rodadas sem acertar um alvo de qualidade, leve ao dono a opção de cancelar ou trocar de abordagem
+    em vez de uma terceira rodada igual.
+40. **A spec dizia "14" e listava 12.** O plano contou errado os slots escolhidos pelo dono; o implementador inventou
+    dois para fechar a conta, sem perguntar. · Antes de entregar uma spec, confira que todo número bate com a lista que
+    ele resume. Se o implementador "completar" algo para casar com um número, trate como divergência na revisão.
+41. **Vigias órfãos.** Um script de vigia em laço infinito por ticket continuou rodando depois que o monitor da
+    ferramenta expirou: 35 processos acumulados em dois dias. · Para "me avise quando terminar", use uma espera única
+    que sai sozinha (laço no PID, em background), não um laço infinito. No fim de cada lote, procure e encerre vigias
+    que sobraram.

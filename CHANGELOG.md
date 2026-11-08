@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-07 — v1.11
+
+- Lições 38–41: método de medição na spec (janela visível só pedindo); conferir capturas você mesmo e oferecer
+  cancelar depois de duas rodadas sem acertar; número da spec tem de bater com a lista; vigias órfãos.
+- Lição 33 reincidiu: edição com caminho do Windows também pela ferramenta de edição de arquivo.
+- Checklist de revisão: itens de captura e de medição.
+
 ## 2026-11-06 — v1.10
 
 - Lições 33–37: caminho do Windows corrompido por escape; implementador automatizando o desktop do dono; monitor por

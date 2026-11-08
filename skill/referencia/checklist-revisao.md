@@ -35,3 +35,6 @@ Leia o diff real (`git diff`, arquivos novos inteiros). O relatório do implemen
 - [ ] Rode o build você mesmo.
 - [ ] Rode os testes/smokes relevantes, incluindo uma regressão do caminho antigo.
 - [ ] Liste ao usuário o que ficou sem verificação (ex.: cliques de UI).
+- [ ] Visual: veja as capturas você mesmo, ampliadas e lado a lado com o antes; o que o relatório diz da imagem não
+      conta.
+- [ ] Número de desempenho: medido pelo método que a spec define (ex.: janela visível, sem vsync), senão não vale.
