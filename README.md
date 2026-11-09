@@ -20,7 +20,9 @@ skill/
     spec-template.md            # modelo de spec para implementadores
     checklist-revisao.md        # o que o orquestrador confere em cada entrega
     paralelismo.md              # worktrees, armadilhas, integração
-    licoes.md                   # lições aprendidas, acrescentadas a cada sessão
+    delegar.md                  # lançamento, vigia de término, monitoramento, correção de rumo
+    evolucao.md                 # como a skill se atualiza ao fim da sessão
+    licoes.md                   # regras que não cabem nos outros arquivos, por assunto
 agents/
   scout.md                      # Haiku: buscas/leituras, sem edição
   implementer-lite.md           # Haiku: edições mecânicas totalmente especificadas
@@ -75,13 +77,5 @@ Opus em subagente só com justificativa explícita.
 
 ## Evolução
 
-A skill se atualiza a cada sessão em que é usada:
-
-1. A lição nova entra em `skill/referencia/licoes.md`.
-2. Se a lição muda o fluxo, o Claude ajusta `SKILL.md` ou o checklist.
-3. A mudança é registrada no `CHANGELOG.md`.
-4. O Claude commita e dá push no repositório.
-
-Veja a seção "Evolução da skill" em `skill/SKILL.md`.
-
-Clone local do autor: `E:\Projects\claude-orquestrar`.
+A skill se atualiza ao fim das sessões em que é usada: a regra nova vai para o arquivo onde será lida, entra no
+`CHANGELOG.md` e é commitada no clone. Detalhes em `skill/referencia/evolucao.md`.

@@ -51,6 +51,9 @@ Relatório conciso: arquivos alterados, decisões de design, saídas da verifica
 Dicas:
 - Coloque números de linha aproximados (`~1234`): poupam buscas do implementador.
 - Separe "Facts" de "Decisions": o implementador não deve rediscutir decisões.
+- Número na spec bate com a lista que ele resume (implementador "completa" a conta inventando itens).
+- Medição: o método vai na spec (como medir e o que invalida, ex. janela escondida trava em 60 fps); número medido
+  de outro jeito não vale. Medida que precisa da tela do dono: peça antes.
 - Diga explicitamente o que **não** verificar com serviços reais (ex. "não suba o banco de produção").
 - Para retomar trabalho interrompido, ponha um cabeçalho: "há um parcial no working tree; audite, não descarte, não
   recomece às cegas".

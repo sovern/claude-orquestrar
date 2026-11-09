@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-11-09 — v2.0 (compactação)
+
+- `SKILL.md` virou o mapa das etapas (7,6 KB → 3,7 KB); o detalhe é lido na etapa: `referencia/delegar.md` (passo 6:
+  prompt, vigia de término, monitoramento, correção de rumo, carga) e `referencia/evolucao.md` (fim de sessão).
+- `licoes.md` de 43 lições cronológicas (16,5 KB) para regras curtas por assunto (2,6 KB). Saiu o que já era regra em
+  outro arquivo (checklist: transações, encoding, finais de linha, procedência, armadilhas; paralelismo: ignorados,
+  cherry-pick; fluxo: fatiar, vigia, mailbox, escopo em execução, caminhos absolutos, agentes novos).
+- Para o lugar onde são lidas: conferência de conflito depois do merge, arquivos gerados e teste de contrato →
+  `paralelismo.md`; número da spec e método de medição → `spec-template.md`.
+- Regra velha: "builds simultâneos, tudo bem" virou limite de carga com o dono usando a máquina. Caminho pessoal do
+  clone saiu do README; o passo de push acha o clone pelo link da skill.
+- Texto não aponta mais para lição por número (a numeração saiu).
+
 ## 2026-11-09 — v1.13
 
 - Passo 3 vira "fatiar, depois especificar": menor tarefa verificável sozinha, estrangulamento em refatoração grande,

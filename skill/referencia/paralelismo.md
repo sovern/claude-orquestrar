@@ -15,7 +15,7 @@ git worktree add -b <branch> ../<repo>-<tarefa> HEAD
   Cuidado com CRLF ao substituir texto (abra em modo binário).
 - **Build do zero por worktree** é lento na primeira vez; reutilize caches/diretórios de dependências compartilhados
   (ex. `VCPKG_INSTALLED_DIR`) quando o sistema de build permitir.
-- **Builds simultâneos** competem por CPU; tudo bem, mas espere que fiquem mais lentos.
+- **Builds simultâneos** competem por CPU e disco com o dono: veja "Carga" em `delegar.md`.
 - **Stash é compartilhado** entre worktrees: nunca `git stash` puro; prefira commit WIP.
 - **Integração:** commite no branch do worktree, faça `rebase` sobre o branch principal, rode build/testes, e traga com
   `cherry-pick`. Se o branch principal está sendo editado por outro implementador, só faça cherry-pick quando não houver
@@ -27,6 +27,10 @@ git worktree add -b <branch> ../<repo>-<tarefa> HEAD
   `git worktree remove <dir>` (sem `--force`) e `git branch -d <branch>` (`-d`, que recusa apagar branch não
   integrado). Use `--force`/`-D` só se o usuário confirmar que o que sobrou pode ser descartado.
 
-## Caminhos para ferramentas externas
-Passe sempre caminhos **absolutos** (spec, workspace). Um caminho relativo resolvido a partir do diretório errado faz
-o implementador falhar na hora, silenciosamente.
+- **Depois de todo merge:** `git diff --name-only --diff-filter=U` inteiro, `grep -rn '^<<<<<<<'` no repo e build.
+  Dois branches que acrescentam itens numa lista de tamanho limitado (ex. tupla de sistemas) estouram só na soma.
+  Número absurdo depois do merge (0 testes) é quebra, não resultado.
+- **Arquivos gerados no merge:** textos (ARB/JSON) pela união das chaves a partir dos estágios (`git show :2:` /
+  `:3:`); código gerado e imagens: fique com o principal e regenere; depois procure chave duplicada.
+- **Frentes que se consomem:** a frente consumidora ganha um teste de cobertura contra o contrato da outra (tipos de
+  evento, IDs, chaves); rode a suíte depois do merge, não só em cada branch.
