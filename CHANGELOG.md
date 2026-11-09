@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-09 — v2.1
+
+- Lição: régua de comparação rodada duas vezes no principal antes de usar (a semente não exportada fez um dia
+  inteiro de "ruído").
+
 ## 2026-11-09 — v2.0 (compactação)
 
 - `SKILL.md` virou o mapa das etapas (7,6 KB → 3,7 KB); o detalhe é lido na etapa: `referencia/delegar.md` (passo 6:

@@ -13,6 +13,8 @@ curta por item, agrupadas por assunto. O que virou regra num desses arquivos sai
   depuração (estado exposto, avanço manual do tempo, roteiro de teclas e capturas com semente fixa).
 - Proíba automação de janela (SendKeys, foco) na máquina do dono: o roteiro do app é o único jeito de dirigi-lo.
 - Ferramenta de observação não pode acionar regra do sistema observado (espectador que conta como jogador).
+- Antes de usar uma ferramenta de comparação como régua, rode-a duas vezes no principal: diferença grande entre
+  rodadas iguais é defeito da ferramenta (ex. semente que não era exportada), não ruído a tolerar.
 - Roteiro por tempo de relógio diverge sob carga: comparação de capturas só vale em tela estática; o comportamento fica
   nos testes. Prefira roteiro por quadro.
 - Smoke que falha às vezes: rode de novo antes de culpar o merge; registre como instável e abra tarefa para torná-lo
