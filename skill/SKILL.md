@@ -34,7 +34,11 @@ estiver indisponível. O papel do orquestrador não muda.
    Nunca leia o repositório inteiro no contexto do orquestrador.
 2. **Decisões do usuário.** Junte as perguntas que mudam escopo e faça de uma vez (AskUserQuestion), com a opção
    recomendada primeiro. Decisões com default óbvio: decida, registre na spec e avise.
-3. **Spec por tarefa** (modelo em `referencia/spec-template.md`): objetivo, fatos verificados com `arquivo:linha`,
+3. **Fatiar, depois especificar.** Quebre o trabalho na menor tarefa que ainda entrega algo verificável sozinha:
+   uma área ou um conjunto pequeno de arquivos, um teste ou medida própria, o principal verde depois dela. Na dúvida,
+   divida (lição 16). Refatoração grande vai por estrangulamento: um caminho único primeiro, depois uma família por
+   tarefa. Registre a ordem numa tabela "tarefa → depende de", que diz o que roda em paralelo.
+   **Spec por tarefa** (modelo em `referencia/spec-template.md`): objetivo, fatos verificados com `arquivo:linha`,
    requisitos numerados, restrições, verificação exata, entregável. Guarde a spec no repositório do projeto.
 4. **Isolamento.** Uma tarefa paralela = um git worktree + um branch. Nunca dois implementadores no mesmo working tree.
    Veja `referencia/paralelismo.md` (arquivos ignorados, scripts de build com caminho fixo, builds simultâneos).
@@ -42,6 +46,9 @@ estiver indisponível. O papel do orquestrador não muda.
 6. **Delegar** em background. O prompt do implementador inclui: caminho absoluto da spec, worktree, o que não tocar,
    as regras do agente (ou o tipo de agente), "não commitar", e — se houver trabalho parcial — "audite o parcial
    contra a spec, não descarte, não recomece às cegas".
+   **Vigia no lançamento**, sem exceção para implementador externo: no mesmo passo em que lança, arme uma espera
+   única em background que sai sozinha quando o processo termina (PID ou linha de saída no log) e te notifica
+   (lições 41 e 43). Lançar sem vigia deixa a entrega parada até alguém perguntar.
    **Monitore** cada tarefa em background: crie a mailbox da spec (`referencia/spec-template.md`) e agende uma
    checagem periódica (ex. a cada 10 min) que lê a mailbox e o `git diff --stat` e reporta ao usuário. Vigie
    também o arquivo de relatório e a saída do processo (PID salvo no lançamento): a mailbox sozinha engana (lição

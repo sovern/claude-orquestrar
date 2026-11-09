@@ -169,3 +169,6 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
 42. **Implementador headless sem canal de volta.** Corrigir rumo exigia matar o processo e recomeçar do zero. · Toda
     spec leva uma caixa de entrada que o agente relê entre passos (`spec-template.md`, "Mailbox"); o orquestrador
     escreve nela e confere o `ack` na saída. Vale só para correção de rumo (lição 15).
+43. **Implementador externo terminou e ninguém viu.** O primeiro lançamento do dia teve vigia; os seguintes não, e
+    uma entrega ficou parada até o usuário perguntar. · A vigia de término nasce no mesmo bloco de comandos do
+    lançamento (SKILL.md, passo 6), uma por tarefa, e sai sozinha.

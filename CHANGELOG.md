@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-09 — v1.13
+
+- Passo 3 vira "fatiar, depois especificar": menor tarefa verificável sozinha, estrangulamento em refatoração grande,
+  tabela de dependências (promove a lição 16 a regra do fluxo).
+- Passo 6: vigia de término armada no mesmo passo do lançamento, sem exceção para implementador externo (lição 43).
+- Revisão do passo 0: as lições 16, 35 e 41 diziam o mesmo em forma de lição; agora o fluxo aponta para elas, sem
+  repetir o texto; sem conflito; nada perigoso adicionado.
+
 ## 2026-11-09 — v1.12
 
 - Mailbox de duas mãos: a spec ganha caixa de entrada que o implementador relê entre passos, inclusive o externo
