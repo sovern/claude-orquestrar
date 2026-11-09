@@ -163,3 +163,9 @@ Formato: **data — contexto** · lição · como aplicar. Mais recentes no fim.
     ferramenta expirou: 35 processos acumulados em dois dias. · Para "me avise quando terminar", use uma espera única
     que sai sozinha (laço no PID, em background), não um laço infinito. No fim de cada lote, procure e encerre vigias
     que sobraram.
+
+## 2026-11-09 — implementadores externos headless em paralelo (Rust/Bevy)
+
+42. **Implementador headless sem canal de volta.** Corrigir rumo exigia matar o processo e recomeçar do zero. · Toda
+    spec leva uma caixa de entrada que o agente relê entre passos (`spec-template.md`, "Mailbox"); o orquestrador
+    escreve nela e confere o `ack` na saída. Vale só para correção de rumo (lição 15).

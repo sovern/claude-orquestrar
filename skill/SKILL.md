@@ -45,8 +45,9 @@ estiver indisponível. O papel do orquestrador não muda.
    **Monitore** cada tarefa em background: crie a mailbox da spec (`referencia/spec-template.md`) e agende uma
    checagem periódica (ex. a cada 10 min) que lê a mailbox e o `git diff --stat` e reporta ao usuário. Vigie
    também o arquivo de relatório e a saída do processo (PID salvo no lançamento): a mailbox sozinha engana (lição
-   35). Diff e mailbox parados por muito tempo indicam travamento. Implementador externo em modo headless não recebe
-   mensagens no meio da execução: a spec é o único canal de ida.
+   35). Diff e mailbox parados por muito tempo indicam travamento. Para mandar comando no meio da tarefa (inclusive a
+   um implementador externo headless), use a caixa de entrada da spec: o agente a relê entre passos. Só correção de
+   rumo vai por ali; escopo novo vira tarefa nova (lições 15 e 42).
 7. **Revisar** cada entrega com `referencia/checklist-revisao.md`. Leia o diff de verdade; não confie no relatório.
 8. **Verificar você mesmo:** build, testes, smokes. Números medidos, não estimados.
 9. **Commitar** (o orquestrador), integrar branches (cherry-pick/rebase), remover worktrees, atualizar o handoff do projeto.

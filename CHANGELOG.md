@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-09 — v1.12
+
+- Mailbox de duas mãos: a spec ganha caixa de entrada que o implementador relê entre passos, inclusive o externo
+  headless (lição 42). O passo 6 deixou de dizer que a spec é o único canal de ida.
+- Licença: MIT ou WTFPL, à escolha de quem usa.
+- Revisão do passo 0: a lição 15 (não mudar escopo em execução) limita a entrada a correção de rumo; a 35 (três
+  sinais de monitoramento) continua valendo; sem repetição; nada perigoso adicionado.
+
 ## 2026-11-07 — v1.11
 
 - Lições 38–41: método de medição na spec (janela visível só pedindo); conferir capturas você mesmo e oferecer
