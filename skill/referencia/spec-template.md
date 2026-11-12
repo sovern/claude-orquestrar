@@ -27,6 +27,8 @@ Leia antes: <docs de design/ADRs relevantes>.
 ## Constraints
 - Estilo do código ao redor; comentários mínimos; sem refactors não relacionados.
 - <o que é proibido: schema, protocolo, serviços externos, dados reais do usuário>
+- <quem pode depender de quem (bibliotecas, camadas)>. Se a interface não der o que você precisa, pare e proponha a
+  mudança no relatório; não contorne (cópia de estado, flag de pendência, include que sobe de camada).
 - Não commitar.
 
 ## Verify
@@ -53,7 +55,11 @@ Dicas:
 - Separe "Facts" de "Decisions": o implementador não deve rediscutir decisões.
 - Número na spec bate com a lista que ele resume (implementador "completa" a conta inventando itens).
 - Medição: o método vai na spec (como medir e o que invalida, ex. janela escondida trava em 60 fps); número medido
-  de outro jeito não vale. Medida que precisa da tela do dono: peça antes.
+  de outro jeito não vale. Medida que precisa da tela do dono: peça antes. Diga se o número é do primeiro quadro
+  (gera e envia tudo) ou do regime, e como medir cada um.
+- A spec é código seu: confira faixa e limite das fórmulas que ela dita (pesos somando mais que 1) e o custo de
+  "refazer tudo" contra a frequência do gatilho. Defeito da spec é dito no commit e ao dono.
+- Teste novo vem com prova de falha: quebre a regra localmente, rode, desfaça, cole a falha no relatório.
 - Diga explicitamente o que **não** verificar com serviços reais (ex. "não suba o banco de produção").
 - Para retomar trabalho interrompido, ponha um cabeçalho: "há um parcial no working tree; audite, não descarte, não
   recomece às cegas".

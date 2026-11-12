@@ -30,6 +30,9 @@ git worktree add -b <branch> ../<repo>-<tarefa> HEAD
 - **Depois de todo merge:** `git diff --name-only --diff-filter=U` inteiro, `grep -rn '^<<<<<<<'` no repo e build.
   Dois branches que acrescentam itens numa lista de tamanho limitado (ex. tupla de sistemas) estouram só na soma.
   Número absurdo depois do merge (0 testes) é quebra, não resultado.
+- **Lista que tarefas paralelas estendem** (fontes e testes no CMake, registro de módulos): um item por linha desde o
+  primeiro merge, ou toda integração conflita. Conflito numa lista: reescreva o bloco inteiro a partir dos itens
+  conhecidos e confira antes de seguir (conserto por script apagou linhas de antes do marcador).
 - **Arquivos gerados no merge:** textos (ARB/JSON) pela união das chaves a partir dos estágios (`git show :2:` /
   `:3:`); código gerado e imagens: fique com o principal e regenere; depois procure chave duplicada.
 - **Frentes que se consomem:** a frente consumidora ganha um teste de cobertura contra o contrato da outra (tipos de

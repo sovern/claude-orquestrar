@@ -10,6 +10,9 @@ Leia o diff real (`git diff`, arquivos novos inteiros). O relatório do implemen
 - [ ] Encoding de caminhos/strings: UTF-8 de ponta a ponta (no Windows, `path.string()` usa a code page ANSI).
 - [ ] Comportamento antigo preservado onde a spec exige (ex.: SQL idêntico no backend antigo).
 - [ ] Gating: o recurso só liga onde deve (flags/config), e o resto fica byte-idêntico.
+- [ ] Contorno de interface (cópia de estado, flag de pendência, include que sobe de camada, biblioteca nova na
+      linkagem dos testes)? Corrija a interface em vez de aceitar o contorno.
+- [ ] Cada teste novo consegue falhar (prova de falha), ou passa por construção?
 
 ## Desempenho
 - [ ] Nada de I/O síncrono em laço na thread principal/dispatcher (agrupe em transação, fatie, ou mova para async).

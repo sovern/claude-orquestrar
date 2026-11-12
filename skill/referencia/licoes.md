@@ -34,6 +34,8 @@ curta por item, agrupadas por assunto. O que virou regra num desses arquivos sai
 
 ## Windows
 - Caminho com `\` dentro de heredoc ou string de script vira caractere de controle (`\t`, `\a`, `\v`): escreva o
-  arquivo com a ferramenta de escrita, ou use `/`. Depois de gerar, procure `[\x00-\x08\x0b\x0c\x0e-\x1f]`.
+  arquivo com a ferramenta de escrita, ou use `/`. Script que gera arquivo com caminho (prompt, script de build)
+  monta a barra em código (`chr(92)`, `os.path.join`), nunca em `sed` ou literal. Depois de gerar, procure
+  `[\x00-\x08\x0b\x0c\x0e-\x1f]`. Reincidiu em três sessões seguidas.
 - `git commit -m` com aspas no PowerShell 5.1 quebra: `git commit -F <arquivo>`.
 - Lance o CLI externo pelo shell onde ele resolve (`.cmd` não roda pelo Git Bash).

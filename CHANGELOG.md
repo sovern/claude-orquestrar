@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-12 — v2.2
+
+- `spec-template.md`: Constraints dizem quem depende de quem e mandam propor, não contornar, quando falta algo na
+  interface; dicas novas: primeiro quadro x regime na medição, conferir fórmula e custo que a própria spec dita, prova
+  de falha de cada teste novo.
+- `checklist-revisao.md`: contorno de interface e teste que passa por construção.
+- `delegar.md`: "nunca `git stash`" no prompt; três ou quatro implementadores externos por vez.
+- `paralelismo.md`: lista que tarefas paralelas estendem, um item por linha; como resolver conflito nela.
+- `licoes.md`: caminho do Windows em script gerado monta a barra em código (reincidiu de novo).
+
 ## 2026-11-09 — v2.1
 
 - Lição: régua de comparação rodada duas vezes no principal antes de usar (a semente não exportada fez um dia

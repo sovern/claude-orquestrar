@@ -1,8 +1,9 @@
 # Delegar e vigiar (passo 6)
 
 Prompt do implementador: caminho absoluto da spec e do worktree, o que não tocar (proibições repetidas no prompt, não
-só na spec), regras do agente, "não commitar"; havendo parcial, "audite contra a spec, não descarte, não recomece às
-cegas".
+só na spec, inclusive "nunca `git stash`": a pilha é de todos os worktrees; o "antes" se mede num worktree temporário
+do commit base), regras do agente, "não commitar"; havendo parcial, "audite contra a spec, não descarte, não recomece
+às cegas".
 
 - **Vigia no lançamento**, sempre: no mesmo passo, uma espera única em background que sai sozinha quando o processo
   termina (PID ou linha de saída no log). Nada de laço infinito (vira órfão; no fim do lote, procure e encerre os que
@@ -14,4 +15,5 @@ cegas".
   novo no meio da execução vira tarefa nova (reabrir trabalho multiplica o tempo). Adendo relevante vai também para o
   arquivo da spec (sobrevive à queda da sessão).
 - **Carga:** implementadores em paralelo dividem a máquina com o dono. Com o dono usando o PC, poucos de cada vez e em
-  prioridade baixa (`nice`/`ionice`, ou `Start-Process -Priority`).
+  prioridade baixa (`nice`/`ionice`, ou `Start-Process -Priority`). Implementador externo: três ou quatro por vez; com
+  seis, o provedor passou a recusar e repetir com espera de 60 s (log cheio de novas tentativas é lentidão, não trava).
